@@ -28,7 +28,7 @@ BinTree PlantABinTree(){
             T->Right=(BinTree)malloc(sizeof(struct BNode));
             (T->Right)->Data=Data;
             (T->Right)->Left=(T->Right)->Right=NULL;
-            Q.push_back(T->Left);
+            Q.push_back(T->Right);
         }
     }
     return BT;
