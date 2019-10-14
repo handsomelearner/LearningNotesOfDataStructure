@@ -1,7 +1,6 @@
 BinTree PlantABinTree(){
     BinTree BT,T;
     ElementType Data;
-    cin>>Data;
     vector<BinTree>Q;
     cin>>Data;
     if(Data!='0'){
