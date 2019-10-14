@@ -4,7 +4,7 @@ BinTree PlantABinTree(){
     cin>>Data;
     vector<BinTree>Q;
     cin>>Data;
-    if(Data!=0){
+    if(Data!='0'){
         BT=(BinTree)malloc(sizeof(struct BNode));
         BT->Data=Data;
         BT->Left=BT->Right=NULL;
@@ -15,7 +15,7 @@ BinTree PlantABinTree(){
         T=Q[0];
         Q.erase(Q.begin());
         cin>>Data;
-        if(Data==0) T->Left=NULL;
+        if(Data=='0') T->Left=NULL;
         else{
             T->Left=(BinTree)malloc(sizeof(struct BNode));
             (T->Left)->Data=Data;
@@ -23,7 +23,7 @@ BinTree PlantABinTree(){
             Q.push_back(T->Left);
         }
         cin>>Data;
-        if(Data==0) T->Right=NULL;
+        if(Data=='0') T->Right=NULL;
         else{
             T->Right=(BinTree)malloc(sizeof(struct BNode));
             (T->Right)->Data=Data;
