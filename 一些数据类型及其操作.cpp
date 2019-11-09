@@ -21,6 +21,54 @@ struct lNode{
     ElementType Data[MAXSIZE];
     int Last;//Last初始值为-1
 };
+List MakeListEmpty(){
+    List L;
+    L=(List)malloc(sizeof(struct LNode));
+    L->Next=NULL;
+    return L;
+}
+List FullList(List L,int N){            //创建一个头节点为空的链表（在此之前先得用上面的MakeListEmpty）
+    List p=L,h=p;
+    ElementType x;
+    while(N>1){
+        cin>>x;
+        p->Next=(List)malloc(sizeof(struct LNode));
+        p->Next->Data=x;
+        p=p->Next;
+        p->Next=NULL;
+        N--;
+    }
+    return h;
+}
+List HeadInsertList(List L,ElementType x){   //头插
+    List h=L,p;
+    p=(List)malloc(sizeof(struct LNode));
+    p->Data=x;
+    p->Next=h->Next;
+    h->Next=p;
+    return h;
+}
+List RearInsertList(List L,ElementType x){  //尾插
+    List p=L,h=p;
+    while(p->Next){
+        p=p->Next;
+    }
+    p->Next=(List)malloc(sizeof(struct LNode));
+    cin>>x;
+    (p->Next)->Data=x;
+    (p->Next)->Next=NULL;
+    return h;
+}
+void DeleteListNode(List L,ElementType x){      // 删除
+    List h=L,p=h;
+    while(p->Next){
+        if(p->Next->Data==x)
+        {
+            p->Next=p->Next->Next;
+            break;
+        }
+    }
+}
 /****************队列(先进先出)——可STL代替**************************/
 struct QNode{
     ElementType* Data;
@@ -52,7 +100,7 @@ int GetHeight(AVL Root){
         return Root->Height;
     }
 }
-AVL SingleLeftRotation(AVL A){
+AVL SingleLeftRotation(AVL   A){
     AVL B=A->Left;
     A->Left=B->Right;
     B->Right=A;
